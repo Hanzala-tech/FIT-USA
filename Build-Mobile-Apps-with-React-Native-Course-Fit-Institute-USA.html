@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build Mobile Apps with React Native Course | Fit Institute USA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root { --ci-orange: #f97316; }
+    .text-orange { color: var(--ci-orange); }
+    .btn-orange { background: var(--ci-orange); color: #fff; }
+    .btn-orange:hover { background: #d65a0d; color: #fff; }
+    
+    :root {
+      --primary: #ff5722;
+      --primary-dark: #e64a19;
+      --secondary: #2196f3;
+      --bg: #f9fafb;
+      --text: #333;
+      --light: #fff;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .navbar{padding:.9rem 0; transition:all .25s ease;}
+    .navbar-brand{font-weight:700; letter-spacing:.2px; font-size: larger;}
+    .nav-link{font-weight:700; position:relative}
+    .nav-link::after{content:""; position:absolute; left:0; bottom:-6px; height:2px; width:0; background:var(--ci-orange); transition:width .25s ease}
+    .nav-link:hover::after{width:100%}
+    .nav-scrolled{background:rgba(255,255,255,.96); box-shadow:0 4px 18px rgba(0,0,0,.05)}
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(rgba(255,87,34,0.7), rgba(255,87,34,0.7)),
+                  url("https://source.unsplash.com/1600x700/?coding,technology") center/cover no-repeat;
+      text-align: center;
+      padding: 120px 20px;
+      color: #fff;
+    }
+    .hero h2 {
+      font-size: 50px;
+      margin: 0;
+      font-weight: 700;
+    }
+    .hero p {
+      font-size: 20px;
+      margin-top: 15px;
+      opacity: 0.95;
+    }
+    .cta-btn {
+      margin-top: 25px;
+      padding: 14px 35px;
+      font-size: 18px;
+      background: #fff;
+      color: var(--primary);
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .cta-btn:hover {
+      background: var(--primary-dark);
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    /* Course Intro Section */
+.course-intro {
+  padding: 70px 20px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.course-intro h2 {
+  font-size: 38px;
+  margin-bottom: 20px;
+  color: var(--primary);
+}
+
+.course-intro p {
+  font-size: 18px;
+  max-width: 800px;
+  margin: auto;
+  color: #555;
+  line-height: 1.6;
+}
+
+    /* Section */
+    section {
+      padding: 70px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    section h2 {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 40px;
+    }
+
+    /* Features */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+    .feature-card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 14px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+    }
+    .feature-card:hover {
+      transform: translateY(-6px);
+    }
+    .feature-card span {
+      font-size: 40px;
+      display: block;
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+
+    /* Table */
+    table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  text-align: center;
+}
+
+table th, table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+}
+
+table th {
+  background: var(--primary);
+  color: #fff;
+}
+
+table td a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+table td a:hover {
+  text-decoration: underline;
+}
+
+    /* Metrics */
+    .metrics {
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .metric-card {
+      flex: 1;
+      min-width: 250px;
+      background: #fff;
+      text-align: center;
+      padding: 30px 20px;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .metric-card h3 {
+      color: var(--primary);
+      font-size: 34px;
+      margin: 0;
+    }
+    .metric-card p {
+      margin-top: 8px;
+      font-weight: 500;
+    }
+
+    /* Syllabus */
+    .syllabus {
+      background: #fff;
+      padding: 40px;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .syllabus h3 {
+      font-size: 22px;
+      margin-top: 25px;
+      color: var(--secondary);
+    }
+    .syllabus ul {
+      margin: 10px 0 25px;
+      padding-left: 20px;
+    }
+    .syllabus li {
+      margin-bottom: 8px;
+    }
+
+    /* Course Details */
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+    }
+    .detail-card {
+      background: #fff;
+      padding: 30px 20px;
+      text-align: center;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+    }
+    .detail-card:hover {
+      transform: translateY(-6px);
+    }
+    .detail-card span {
+      font-size: 40px;
+      display: block;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+    .detail-card h4 {
+      margin: 8px 0;
+      font-size: 18px;
+    }
+    .detail-card p {
+      margin: 0;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    .price-card {
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 45px 25px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      margin-top: 40px;
+    }
+    .price-card h3 {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+    .buy-btn {
+      background: #fff;
+      color: var(--primary);
+      border: none;
+      padding: 14px 35px;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+    .buy-btn:hover {
+      background: var(--primary-dark);
+      color: #fff;
+    }
+
+    /* Footer */
+    footer {
+  background: #0d0f11;      
+  color: #e2e8f0;          
+  font-size: 0.95rem;
+}
+
+footer h5,
+footer h6 {
+  color: #ffffff;          
+  font-weight: 700;
+}
+
+footer p {
+  color: #cbd5e1;     
+}
+
+footer a {
+  color: #f9a36b;        
+  text-decoration: none;
+  font-weight: 500;
+}
+
+footer a:hover {
+  color: #ff7c36;       
+  text-decoration: underline;
+}
+
+footer .form-control {
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+}
+
+footer .btn {
+  border-radius: 10px;
+  background: #fff;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+footer .btn:hover {
+  background: #f9a36b;
+  color: #fff;
+}
+
+footer hr {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+footer .text-center {
+  color: #94a3b8;
+}
+  </style>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<body>
+
+  <nav class="navbar navbar-expand-lg sticky-top bg-white" id="siteNav">
+    <div class="container">
+      <a class="navbar-brand text-black" href="FIT_Home.html"><span style="color:var(--ci-orange)">FIT</span> Computer <span style="color:var(--ci-orange)">Institute</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+      <div id="nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="FIT_Home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="FIT_Course.html">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="FIT_About.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="FIT_Contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <h2>React Native <br> Course</h2>
+    <p>Master React Native & Mobile App Development with Real Projects</p>
+  </section>
+
+  <section class="course-intro">
+    <div class="container">
+      <h2>Build Mobile Apps with React Native <br> Course in USA</h2>
+      <p>
+        Learn how to build modern, cross-platform, and interactive mobile applications from scratch.  
+        This course covers React Native, JavaScript, and popular libraries to help you become job-ready.
+      </p>
+      </p>
+    </div>
+  </section>
+
+  
+  <section>
+    <h2>Why Choose This Course?</h2>
+    <div class="features">
+      <div class="feature-card">
+        <span>💻</span>
+        <h4>Hands-on Training</h4>
+        <p>Learn by building real-world projects under expert guidance.</p>
+      </div>
+      <div class="feature-card">
+        <span>🎓</span>
+        <h4>Certification</h4>
+        <p>Get an industry-recognized certificate upon completion.</p>
+      </div>
+      <div class="feature-card">
+        <span>🤝</span>
+        <h4>Internship</h4>
+        <p>Gain practical experience with live projects and mentorship.</p>
+      </div>
+      <div class="feature-card">
+        <span>🚀</span>
+        <h4>Career Support</h4>
+        <p>Kickstart freelancing or job opportunities in web development.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Course Fee Structure</h2>
+    <table border="1" cellpadding="10" cellspacing="0">
+      <tr>
+        <th>Course Duration</th>
+        <th>Installment Fee</th>
+        <th>Lump Sum Fee</th>
+      </tr>
+      <tr>
+        <td><a href="Build-Mobile-Apps-with-React-Native-Course-Fit-Institute-USA.html">1 Month</a></td>
+        <td>--</td>
+        <td>$100</td>
+      </tr>
+      <tr>
+        <td><a href="Build-Mobile-Apps-with-React-Native-Course-Fit-Institute-USA.html">2 Months</a></td>
+        <td>$120</td>
+        <td>$115</td>
+      </tr>
+      <tr>
+        <td><a href="Build-Mobile-Apps-with-React-Native-Course-Fit-Institute-USA.html">3 Months</a></td>
+        <td>$150</td>
+        <td>$145</td>
+      </tr>
+    </table>
+  </section>
+  
+
+  <section>
+    <h2>Our Achievements</h2>
+    <div class="metrics">
+      <div class="metric-card">
+        <h3>23,564+</h3>
+        <p>Students Trained</p>
+      </div>
+      <div class="metric-card">
+        <h3>4.5/5</h3>
+        <p>Average Rating</p>
+      </div>
+      <div class="metric-card">
+        <h3>270+</h3>
+        <p>Reviews</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="syllabus">
+    <h2>Course Curriculum</h2>
+    <h3>1. Basic Concepts</h3>
+<ul>
+  <li>Introduction to React Native</li>
+  <li>Advantages of React Native</li>
+  <li>Comparison with other mobile development frameworks</li>
+  <li>Installation of Node.js and npm</li>
+  <li>Configuring the React Native CLI</li>
+  <li>Setting up Android & iOS emulators/simulators</li>
+  <li>Understanding React Native components</li>
+  <li>JSX syntax and usage</li>
+  <li>Styling React Native components</li>
+  <li>Layout techniques for responsive UIs</li>
+  <li>Working with text & image components</li>
+  <li>Buttons and interactivity</li>
+  <li>Input fields and user gestures</li>
+  <li>Introduction to React Navigation library</li>
+</ul>
+
+<h3>2. Navigation & State Management</h3>
+<ul>
+  <li>Stack, Tab & Drawer Navigation</li>
+  <li>Passing parameters between screens</li>
+  <li>Deep linking in apps</li>
+  <li>Navigation events handling</li>
+  <li>React Hooks (useState, useEffect, useContext)</li>
+  <li>Redux setup, actions, reducers, and store</li>
+  <li>Async actions with Redux Thunk</li>
+  <li>MobX for state management</li>
+</ul>
+
+<h3>3. APIs & Data Handling</h3>
+<ul>
+  <li>HTTP requests with Fetch</li>
+  <li>Handling RESTful APIs</li>
+  <li>Displaying API data</li>
+  <li>File upload & download</li>
+  <li>User authentication with APIs</li>
+  <li>OAuth integration</li>
+</ul>
+
+<h3>4. Device Features</h3>
+<ul>
+  <li>Camera & Photo Library</li>
+  <li>Geolocation & Maps</li>
+  <li>Device sensors & orientation</li>
+  <li>Push & Local Notifications</li>
+  <li>Accessing native APIs & custom modules</li>
+</ul>
+
+<h3>5. Testing & Debugging</h3>
+<ul>
+  <li>Jest & Enzyme for testing</li>
+  <li>Debugging with console & Chrome DevTools</li>
+  <li>Common error handling</li>
+  <li>Performance optimization</li>
+  <li>Code splitting & lazy loading</li>
+  <li>Memory management & reducing app size</li>
+</ul>
+
+<h3>6. App Deployment</h3>
+<ul>
+  <li>Generating APK (Android) & IPA (iOS)</li>
+  <li>Signing & release management</li>
+  <li>Publishing on Google Play Store</li>
+  <li>Publishing on Apple App Store</li>
+  <li>App updates & versioning</li>
+</ul>
+
+<h3>7. Advanced Topics</h3>
+<ul>
+  <li>Localization & Internationalization</li>
+  <li>Accessibility for inclusive design</li>
+  <li>Integrating third-party libraries</li>
+  <li>Error handling, loading indicators & progress bars</li>
+  <li>Animations & navigation transitions</li>
+  <li>Dark mode implementation</li>
+  <li>Form validation & data persistence</li>
+  <li>In-app purchases</li>
+  <li>Real-time communication with WebSocket</li>
+  <li>Chat functionality</li>
+  <li>Data visualization & offline sync</li>
+  <li>Biometric authentication</li>
+</ul>
+
+<h3>8. Final Project</h3>
+<ul>
+  <li>Build a complete React Native app from scratch</li>
+  <li>Apply real-world industry practices</li>
+  <li>Internship opportunity after course completion</li>
+</ul>
+    <h3>9. WordPress & Freelancing</h3>
+    <ul>
+      <li>WordPress Basics</li>
+      <li>Freelancing Platforms & Projects</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Course Details</h2>
+    <div class="details-grid">
+      <div class="detail-card">
+        <span>📑</span>
+        <h4>Lectures</h4>
+        <p>20+</p>
+      </div>
+      <div class="detail-card">
+        <span>🧩</span>
+        <h4>Quizzes</h4>
+        <p>5+</p>
+      </div>
+      <div class="detail-card">
+        <span>⏰</span>
+        <h4>Duration</h4>
+        <p>1-3 Months</p>
+      </div>
+      <div class="detail-card">
+        <span>👥</span>
+        <h4>Students</h4>
+        <p>43</p>
+      </div>
+      <div class="detail-card">
+        <span>☑️</span>
+        <h4>Assessments</h4>
+        <p>Yes</p>
+      </div>
+    </div>
+
+    <div class="price-card">
+      <h3>$150</h3>
+      <a href="FIT_Contact.html" class="buy-btn">Buy Now</a>
+    </div>
+  </section>
+
+  <footer class="pt-5 pb-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4"><h5 class="fw-bold">Future In Technology</h5><p class="mb-0">FIT computer institute is operating all over the world  providing the service of computer short courses from 2012 all around world. We developed many personalities that working in Different IT sector of Government and private.</p></div>
+        <div class="col-md-4"><h6 class="fw-bold">Quick Links</h6><ul class="list-unstyled mb-0"><li><a href="FIT_Home.html">Home</a></li><li><a href="FIT_Course.html">Courses</a></li><li><a href="FIT_About.html">About</a></li><li><a href="FIT_Contact.html">Contact</a></li></ul></div>
+        <div class="col-md-4" id="contact"><h6 class="fw-bold">Contact Us</h6><form class="row g-2"><div class="col-12"><input class="form-control" placeholder="Your Name" required></div><div class="col-12"><input type="email" class="form-control" placeholder="Email" required></div><div class="col-12"><textarea class="form-control" rows="2" placeholder="Message"></textarea></div><div class="col-12 d-grid"><button class="btn btn-light text-dark fw-bold" type="submit">Send</button></div></form></div>
+      </div>
+      <hr class="border-secondary-subtle my-4"/>
+      <div class="text-center small">© 2025 CompTech Institute. All rights reserved.</div>
+    </div>
+  </footer>
+
+</body>
+</html>

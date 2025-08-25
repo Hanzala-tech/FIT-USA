@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FIT Computer Institute – About</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root { --ci-orange: #f97316; }
+    .text-orange { color: var(--ci-orange); }
+    .btn-orange { background: var(--ci-orange); color: #fff; }
+    .btn-orange:hover { background: #d65a0d; color: #fff; }
+
+    .navbar{padding:.9rem 0; transition:all .25s ease;}
+    .navbar-brand{font-weight:700; letter-spacing:.2px; font-size: larger;}
+    .nav-link{font-weight:700; position:relative}
+    .nav-link::after{content:""; position:absolute; left:0; bottom:-6px; height:2px; width:0; background:var(--ci-orange); transition:width .25s ease}
+    .nav-link:hover::after{width:100%}
+    .nav-scrolled{background:rgba(255,255,255,.96); box-shadow:0 4px 18px rgba(0,0,0,.05)}
+
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("https://picsum.photos/1920/700?tech");
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      padding: 120px 0;
+      text-align: center;
+    }
+    .section-title { font-weight: bold; margin-bottom: 40px; text-align: center; }
+    .stat-card {
+      background: #fff; border-radius: 12px; padding: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center;
+    }
+    .testimonial {
+      background: #f8f9fa; border-radius: 10px; padding: 20px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+    }
+    .blog-card img { border-radius: 10px 10px 0 0; }
+    .milestone {
+      background: #f9fafb; border-radius: 10px; padding: 25px;
+      text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    }
+
+footer {
+  background: #0d0f11;      
+  color: #e2e8f0;          
+  font-size: 0.95rem;
+}
+
+footer h5,
+footer h6 {
+  color: #ffffff;          
+  font-weight: 700;
+}
+
+footer p {
+  color: #cbd5e1;     
+}
+
+footer a {
+  color: #f9a36b;        
+  text-decoration: none;
+  font-weight: 500;
+}
+
+footer a:hover {
+  color: #ff7c36;       
+  text-decoration: underline;
+}
+
+footer .form-control {
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+}
+
+footer .btn {
+  border-radius: 10px;
+  background: #fff;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+footer .btn:hover {
+  background: #f9a36b;
+  color: #fff;
+}
+
+footer hr {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+footer .text-center {
+  color: #94a3b8;
+}
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top bg-white" id="siteNav">
+    <div class="container">
+      <a class="navbar-brand text-black" href="FIT_Home.html"><span style="color:var(--ci-orange)">FIT</span> Computer <span style="color:var(--ci-orange)">Institute</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+      <div id="nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="FIT_Home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="FIT_Course.html">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="FIT_About.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="FIT_Contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <h1 class="display-4 fw-bold">About FIT Computer Institute</h1>
+    <p class="lead">Empowering students with modern technology since 2012</p>
+  </div>
+</section>
+
+<!-- About Description -->
+<section class="py-5">
+  <div class="container">
+    <h2 class="section-title">Our Journey</h2>
+    <p class="lead text-center">
+      Future In Technology (FIT) Computer Institute has been providing world-class IT education since 2012.  
+      With a mission to make technology accessible to everyone, FIT has trained thousands of students globally,  
+      shaping future leaders in software development, networking, cybersecurity, graphic design, and more.
+    </p>
+  </div>
+</section>
+
+<!-- All Students Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="section-title">Our Students Strength</h2>
+    <div class="row g-4">
+      <div class="col-md-3">
+        <div class="stat-card">
+          <h2 class="text-orange">15,000+</h2>
+          <p>Students Trained</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-card">
+          <h2 class="text-orange">50+</h2>
+          <p>Expert Instructors</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-card">
+          <h2 class="text-orange">20+</h2>
+          <p>Courses Offered</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-card">
+          <h2 class="text-orange">95%</h2>
+          <p>Student Satisfaction</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Milestones Section -->
+<section class="py-5">
+  <div class="container">
+    <h2 class="section-title">Our Milestones</h2>
+    <div class="row g-4">
+      <div class="col-md-3"><div class="milestone"><h4>2012</h4><p>Institute <br> Established</p></div></div>
+      <div class="col-md-3"><div class="milestone"><h4>2015</h4><p>First 1,000 <br> Graduates</p></div></div>
+      <div class="col-md-3"><div class="milestone"><h4>2018</h4><p>Expanded Internationally</p></div></div>
+      <div class="col-md-3"><div class="milestone"><h4>2023</h4><p>15,000+ Students Reached</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Student Reviews -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="section-title">What Our Students Say</h2>
+    <div class="row g-4">
+      <div class="col-md-4"><div class="testimonial"><p>"FIT changed my career. The courses are practical and the teachers are excellent."</p><h6>- Sarah K.</h6></div></div>
+      <div class="col-md-4"><div class="testimonial"><p>"I got my dream IT job after completing the networking course here."</p><h6>- Ahmed R.</h6></div></div>
+      <div class="col-md-4"><div class="testimonial"><p>"Hands-on labs and real <br> projects prepared me for the <br> industry."</p><h6>- Maria S.</h6></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Blog Section -->
+<section class="py-5 bg-light" id="blog">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Our Blog</h2>
+        <p class="text-muted">Latest updates and insights from Future in Technology</p>
+      </div>
+      <div class="row g-4">
+  
+        <!-- Blog Post 1 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0">
+            <img src="webblog.avif" class="card-img-top" alt="Blog 1">
+            <div class="card-body">
+              <small class="text-muted d-block mb-2">March 10, 2025</small>
+              <h5 class="card-title fw-bold">The Future of Web Development</h5>
+              <p class="card-text">
+                Web technologies are evolving faster than ever. With AI integration, cloud platforms,
+                and modern frameworks, students need to stay updated with the latest trends in web
+                development to remain competitive in the market.
+              </p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Blog Post 2 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0">
+            <img src="AIblog.webp" class="card-img-top" alt="Blog 2">
+            <div class="card-body">
+              <small class="text-muted d-block mb-2">March 02, 2025</small>
+              <h5 class="card-title fw-bold">AI & Machine Learning in 2025</h5>
+              <p class="card-text">
+                Artificial Intelligence is shaping industries worldwide. From chatbots to predictive
+                analytics, machine learning skills are in high demand. FIT ensures students gain
+                hands-on experience with real-world AI tools.
+              </p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Blog Post 3 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0">
+            <img src="cybersecurity.webp" class="card-img-top" alt="Blog 3">
+            <div class="card-body">
+              <small class="text-muted d-block mb-2">Feb 25, 2025</small>
+              <h5 class="card-title fw-bold">Why Cybersecurity Matters Today</h5>
+              <p class="card-text">
+                With increasing cyber threats, companies are investing more in security experts. Our
+                cybersecurity training program prepares students to tackle hacking, data breaches, and
+                security vulnerabilities effectively.
+              </p>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>  
+
+<!-- Footer -->
+<footer class="pt-5 pb-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4"><h5 class="fw-bold">Future In Technology</h5><p class="mb-0">FIT computer institute is operating all over the world  providing the service of computer short courses from 2012 all around world. We developed many personalities that working in Different IT sector of Government and private.</p></div>
+        <div class="col-md-4"><h6 class="fw-bold">Quick Links</h6><ul class="list-unstyled mb-0"><li><a href="FIT_Home.html">Home</a></li><li><a href="FIT_Course.html">Courses</a></li><li><a href="FIT_About.html">About</a></li><li><a href="FIT_Contact.html">Contact</a></li></ul></div>
+        <div class="col-md-4" id="contact"><h6 class="fw-bold">Contact Us</h6><form class="row g-2"><div class="col-12"><input class="form-control" placeholder="Your Name" required></div><div class="col-12"><input type="email" class="form-control" placeholder="Email" required></div><div class="col-12"><textarea class="form-control" rows="2" placeholder="Message"></textarea></div><div class="col-12 d-grid"><button class="btn btn-light text-dark fw-bold" type="submit">Send</button></div></form></div>
+      </div>
+      <hr class="border-secondary-subtle my-4"/>
+      <div class="text-center small">© 2025 CompTech Institute. All rights reserved.</div>
+    </div>
+  </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

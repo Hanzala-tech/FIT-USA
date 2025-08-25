@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FIT Computer Institute – Courses</title>
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <style>
+        :root { --ci-orange: #f97316; }
+    .text-orange { color: var(--ci-orange); }
+    .btn-orange { background: var(--ci-orange); color: #fff; }
+    .btn-orange:hover { background: #d65a0d; color: #fff; }
+
+    :root {
+      --primary-color: #ff6600;
+      --light-orange: #fff2e6;
+    }
+  
+    .navbar{padding:.9rem 0; transition:all .25s ease;}
+    .navbar-brand{font-weight:700; letter-spacing:.2px; font-size: larger;}
+    .nav-link{font-weight:700; position:relative}
+    .nav-link::after{content:""; position:absolute; left:0; bottom:-6px; height:2px; width:0; background:var(--ci-orange); transition:width .25s ease}
+    .nav-link:hover::after{width:100%}
+    .nav-scrolled{background:rgba(255,255,255,.96); box-shadow:0 4px 18px rgba(0,0,0,.05)}
+
+    .hero {
+    background: url('https://picsum.photos/1600/500?grayscale') center/cover no-repeat;
+      color: white;
+      padding: 120px 0;
+      text-align: center;
+      position: relative;
+    }
+  
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+    }
+  
+    .hero h1,
+    .hero p {
+      position: relative;
+      z-index: 1;
+    }
+  
+    .course-card {
+      background-color: white;
+      border-radius: 12px;
+      border: none;
+      transition: all 0.3s ease;
+      color: #333;
+      text-align: center;
+      overflow: hidden;
+    }
+  
+    .course-card:hover {
+      background-color: var(--primary-color);
+      color: white;
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(255, 102, 0, 0.3);
+    }
+  
+        .course-card .card-img-top {
+    height: 200px;      
+    object-fit: cover;  
+    width: 100%;
+    display: block;
+      border-bottom: 4px solid var(--light-orange);
+    }
+  
+    .course-card .card-body {
+      padding: 1.5rem;
+    }
+  
+    .course-card:hover .card-title,
+    .course-card:hover .card-text,
+    .course-card:hover .price,
+    .course-card:hover .original-price,
+    .course-card:hover .course-meta {
+      color: white !important;
+    }
+  
+    .price {
+      color: green;
+      font-weight: bold;
+    }
+  
+    .original-price {
+      color: red;
+      text-decoration: line-through;
+    }
+  
+    .course-meta {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+  
+    .course-meta i {
+      margin-right: 5px;
+    }
+  
+    .rating-stars {
+      color: gold;
+    }
+
+    footer {
+  background: #0d0f11;      
+  color: #e2e8f0;          
+  font-size: 0.95rem;
+}
+
+footer h5,
+footer h6 {
+  color: #ffffff;          
+  font-weight: 700;
+}
+
+footer p {
+  color: #cbd5e1;     
+}
+
+footer a {
+  color: #f9a36b;        
+  text-decoration: none;
+  font-weight: 500;
+}
+
+footer a:hover {
+  color: #ff7c36;       
+  text-decoration: underline;
+}
+
+footer .form-control {
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+}
+
+footer .btn {
+  border-radius: 10px;
+  background: #fff;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+footer .btn:hover {
+  background: #f9a36b;
+  color: #fff;
+}
+
+footer hr {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+footer .text-center {
+  color: #94a3b8;
+}
+  </style>
+  
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top bg-white" id="siteNav">
+    <div class="container">
+      <a class="navbar-brand text-black" href="FIT_Home.html"><span style="color:var(--ci-orange)">FIT</span> Computer <span style="color:var(--ci-orange)">Institute</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+      <div id="nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="FIT_Home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="FIT_Course.html">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="FIT_About.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="FIT_Contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="fw-bold display-4">Our Courses</h1>
+      <p class="lead">Explore 24 professional IT courses designed to upgrade your skills.</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="fw-bold text-center mb-4">About Our Institute & Courses</h2>
+      <p class="text-muted fs-5 text-center mb-5">
+        Future In Technology (FIT) has been a pioneer in IT education since 2012. 
+        Our mission is to empower students worldwide with practical and industry-ready computer skills. 
+        We offer short courses in software development, design, networking, and digital marketing. 
+        Each course is carefully crafted to provide hands-on training and prepare you for real-world challenges.
+        <br><br>
+        Our faculty consists of industry experts and certified trainers who ensure that every student 
+        receives personal attention and guidance. With flexible online and on-campus options, 
+        you can learn at your own pace and convenience. Join our 24 specially curated courses today 
+        and take the first step toward a successful IT career.
+      </p>
+    </div>
+  </section>
+
+  <!-- Courses Grid -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="fw-bold text-center mb-5">Available Courses</h2>
+      <div class="row g-4"> 
+        <div class="col-md-4 col-sm-6">
+            <div class="card course-card h-100 text-center">
+              <img src="frontcor.jpg" class="card-img-top" alt="C++ Programming" />
+              <div class="card-body">
+                <small class="text-muted">Designing</small>
+                <h5 class="card-title mt-2 fw-bold">Front-End Web <br> Design Course</h5>
+                <p class="card-text">Html & Css<br>JavaScript <br>WordPress</p>
+                <div class="course-meta mt-2">
+                  <span><i class="bi bi-people-fill"></i> 80</span>
+                  <span class="rating-stars">★★★★★(76)</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">Discount Fee: $120</span>
+                  <span class="original-price">Original Fee: $145</span>
+                </div>
+                <a href="Online-Front-End-Web-Designing-Course-in-USA.html" class="btn btn-warning w-100 mt-3">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="card course-card h-100 text-center">
+              <img src="microcor.webp" class="card-img-top" alt="" />
+              <div class="card-body">
+                <small class="text-muted">Microsoft</small>
+                <h5 class="card-title mt-2 fw-bold">Microsoft Office <br> Course</h5>
+                <p class="card-text">Ms Word<br>Ms Execel <br>Ms Powerpoint</p>
+                <div class="course-meta mt-2">
+                  <span><i class="bi bi-people-fill"></i> 49</span>
+                  <span class="rating-stars">★★★★★(23)</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">Discount Fee: $100</span>
+                  <span class="original-price">Original Fee: $130</span>
+                </div>
+                <a href="Online-Microsoft-Office-Course-in-USA-FIT-Institute.html" class="btn btn-warning w-100 mt-3">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="card course-card h-100 text-center">
+              <img src="php-mysql.png" class="card-img-top" alt="" />
+              <div class="card-body">
+                <small class="text-muted">Programming</small>
+                <h5 class="card-title mt-2 fw-bold">PHP MySQL <br> Course</h5>
+                <p class="card-text">MySQL<br>JavaScript <br>PHP</p>
+                <div class="course-meta mt-2">
+                  <span><i class="bi bi-people-fill"></i> 72</span>
+                  <span class="rating-stars">★★★★★(56)</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">Discount Fee: $120</span>
+                  <span class="original-price">Original Fee: $145</span>
+                </div>
+                <a href="Best-PHP,-MySQL,-Laravel-Online-Course-FIT-Institute-USA.html" class="btn btn-warning w-100 mt-3">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="card course-card h-100 text-center">
+              <img src="Graphiccor.jpg" class="card-img-top" alt="" />
+              <div class="card-body">
+                <small class="text-muted">Grapics</small>
+                <h5 class="card-title mt-2 fw-bold">Graphic <br> Designing</h5>
+                <p class="card-text">Adobe PhotoShop<br>Adobe Illustrator <br> Corel Draw <br>Adobe InDesign/p>
+                <div class="course-meta mt-2">
+                  <span><i class="bi bi-people-fill"></i> 62</span>
+                  <span class="rating-stars">★★★★★(34)</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">Discount Fee: $110</span>
+                  <span class="original-price">Original Fee: $135</span>
+                </div>
+                <a href="Fit-Institute-Top-Online-Graphic-Design-Course-USA .html" class="btn btn-warning w-100 mt-3">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="card course-card h-100 text-center">
+              <img src="Full stack.webp" class="card-img-top" alt="" />
+              <div class="card-body">
+                <small class="text-muted">Programming</small>
+                <h5 class="card-title mt-2 fw-bold">Full Stack Web <br> Development</h5>
+                <p class="card-text">Front-End<br>Back-End <br>php/ asp.net</p>
+                <div class="course-meta mt-2">
+                  <span><i class="bi bi-people-fill"></i> 78</span>
+                  <span class="rating-stars">★★★★★(65)</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">Discount Fee: $170</span>
+                  <span class="original-price">Original Fee: $200</span>
+                </div>
+                <a href="Best-Full-Stack-Web-Development-Courses-in-Usa-Online.html" class="btn btn-warning w-100 mt-3">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="card course-card h-100 text-center">
+              <img src="six-months-certificate-courses-1.jpg" class="card-img-top" alt="" />
+              <div class="card-body">
+                <small class="text-muted">Short Courses</small>
+                <h5 class="card-title mt-2 fw-bold">Certificate in six <br> month short <br>  courses</h5>
+                <p class="card-text">Android App Developement<br>Web Developement <br>Grapic Designing</p>
+                <div class="course-meta mt-2">
+                  <span><i class="bi bi-people-fill"></i> 72</span>
+                  <span class="rating-stars">★★★★★(56)</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">Discount Fee: $170</span>
+                  <span class="original-price">Original Fee: $200</span>
+                </div>
+                <a href="Online-Six-Months-Certificate-Courses-in-Usa-Fit-Institute.html" class="btn btn-warning w-100 mt-3">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="card course-card h-100 text-center">
+              <img src="c++.jpg" class="card-img-top" alt="C++ Programming" />
+              <div class="card-body">
+                <small class="text-muted">Programming</small>
+                <h5 class="card-title mt-2 fw-bold">C++ Computer <br> Course</h5>
+                <p class="card-text">Basic Programming <br>Advance level oop <br>Data Structure algorithm</p>
+                <div class="course-meta mt-2">
+                  <span><i class="bi bi-people-fill"></i> 130</span>
+                  <span class="rating-stars">★★★★★(94)</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">Discount Fee: $100</span>
+                  <span class="original-price">Original Fee: $130</span>
+                </div>
+                <a href="Best-C++-Courses-Online-Fit-Institute-Usa.html" class="btn btn-warning w-100 mt-3">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="card course-card h-100 text-center">
+              <img src="javacor.jpg" class="card-img-top" alt="C++ Programming" />
+              <div class="card-body">
+                <small class="text-muted">Programming</small>
+                <h5 class="card-title mt-2 fw-bold">Java <br> Programming</h5>
+                <p class="card-text">Basic Java<br>Advance Java <br>Desktop Software</p>
+                <div class="course-meta mt-2">
+                  <span><i class="bi bi-people-fill"></i> 102</span>
+                  <span class="rating-stars">★★★★★(76)</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">Discount Fee: $110</span>
+                  <span class="original-price">Original Fee: $135</span>
+                </div>
+                <a href="Fit-Institute-Top-Online-Java-programming-Course-USA.html" class="btn btn-warning w-100 mt-3">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="card course-card h-100 text-center">
+              <img src="adobecor.webp" class="card-img-top" alt="C++ Programming" />
+              <div class="card-body">
+                <small class="text-muted">Graphics</small>
+                <h5 class="card-title mt-2 fw-bold">Adobe <br> PhotoShop</h5>
+                <p class="card-text">Sketching<br>Pictures Editing <br>Drawing</p>
+                <div class="course-meta mt-2">
+                  <span><i class="bi bi-people-fill"></i> 89</span>
+                  <span class="rating-stars">★★★★★(54)</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">Discount Fee: $90</span>
+                  <span class="original-price">Original Fee: $120</span>
+                </div>
+                <a href="Best-Online-Photoshop-Course-Fit-Institute-USA.html" class="btn btn-warning w-100 mt-3">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="card course-card h-100 text-center">
+              <img src="aspcor.jpg" class="card-img-top" alt="C++ Programming" />
+              <div class="card-body">
+                <small class="text-muted">Programming</small>
+                <h5 class="card-title mt-2 fw-bold">ASP.NET MVC <br> Course</h5>
+                <p class="card-text">ASP.NET Core<br>MVC&SQl Server</p>
+                <div class="course-meta mt-2">
+                  <span><i class="bi bi-people-fill"></i> 34</span>
+                  <span class="rating-stars">★★★★★(16)</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">Discount Fee: $150</span>
+                  <span class="original-price">Original Fee: $170</span>
+                </div>
+                <a href="Master-ASP.NET-MVC-Online-Fit-Institute-USA.html" class="btn btn-warning w-100 mt-3">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="card course-card h-100 text-center">
+              <img src="corelcor.webp" class="card-img-top" alt="C++ Programming" />
+              <div class="card-body">
+                <small class="text-muted">Graphics</small>
+                <h5 class="card-title mt-2 fw-bold">Corel Draw <br> Course</h5>
+                <p class="card-text">Flyer Designing<br>Visiting Card Designing <br>Logo Designing</p>
+                <div class="course-meta mt-2">
+                  <span><i class="bi bi-people-fill"></i> 134</span>
+                  <span class="rating-stars">★★★★★(106)</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">Discount Fee: $100</span>
+                  <span class="original-price">Original Fee: $120</span>
+                </div>
+                <a href="Fit-Institute-Corel-DRAW-Course-USA-Online.html" class="btn btn-warning w-100 mt-3">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="card course-card h-100 text-center">
+              <img src="mobdevcor.webp" class="card-img-top" alt="C++ Programming" />
+              <div class="card-body">
+                <small class="text-muted">Developement</small>
+                <h5 class="card-title mt-2 fw-bold">Mobile App <br> Developement</h5>
+                <p class="card-text">Java<br>Kotlin <br>Room Database</p>
+                <div class="course-meta mt-2">
+                  <span><i class="bi bi-people-fill"></i> 80</span>
+                  <span class="rating-stars">★★★★★(76)</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">Discount Fee: $120</span>
+                  <span class="original-price">Original Fee: $145</span>
+                </div>
+                <a href="Best-Mobile-App-Development-Course-Online-Fit-Institute-USA.html" class="btn btn-warning w-100 mt-3">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="card course-card h-100 text-center">
+              <img src="reactcor.avif" class="card-img-top" alt="C++ Programming" />
+              <div class="card-body">
+                <small class="text-muted">Developement</small>
+                <h5 class="card-title mt-2 fw-bold">React-Native App</h5>
+                <p class="card-text">React Native<br>JavaScript <br>Firebase</p>
+                <div class="course-meta mt-2">
+                  <span><i class="bi bi-people-fill"></i> 98</span>
+                  <span class="rating-stars">★★★★★(76)</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">Discount Fee: $150</span>
+                  <span class="original-price">Original Fee: $170</span>
+                </div>
+                <a href="Build-Mobile-Apps-with-React-Native-Course-Fit-Institute-USA.html" class="btn btn-warning w-100 mt-3">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="card course-card h-100 text-center">
+              <img src="itcor.jpg" class="card-img-top" alt="C++ Programming" />
+              <div class="card-body">
+                <small class="text-muted">Short Courses</small>
+                <h5 class="card-title mt-2 fw-bold">Certificate In IT</h5>
+                <p class="card-text">MS Office <br>C++ <br>Graphics 1 Module</p>
+                <div class="course-meta mt-2">
+                  <span><i class="bi bi-people-fill"></i> 61</span>
+                  <span class="rating-stars">★★★★★(45)</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">Discount Fee: $150</span>
+                  <span class="original-price">Original Fee: $170</span>
+                </div>
+                <a href="Best-IT-Certificate-Course-Fit-Institute-USA-Online.html" class="btn btn-warning w-100 mt-3">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="card course-card h-100 text-center">
+              <img src="Ccourse.jpg" class="card-img-top" alt="C++ Programming" />
+              <div class="card-body">
+                <small class="text-muted">Programming</small>
+                <h5 class="card-title mt-2 fw-bold">C#</h5>
+                <p class="card-text">Basic C Sharp<br>Visual Programming <br>Setup of Software</p>
+                <div class="course-meta mt-2">
+                  <span><i class="bi bi-people-fill"></i> 55</span>
+                  <span class="rating-stars">★★★★★(23)</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">Discount Fee: $120</span>
+                  <span class="original-price">Original Fee: $145</span>
+                </div>
+                <a href="Fit-Institute-Top-C-Hashtag-Programming-Online-Course-USA.html" class="btn btn-warning w-100 mt-3">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="card course-card h-100 text-center">
+              <img src="adobeillustrator.avif" class="card-img-top" alt="C++ Programming" />
+              <div class="card-body">
+                <small class="text-muted">Graphics</small>
+                <h5 class="card-title mt-2 fw-bold">Adobe Illustrator</h5>
+                <p class="card-text">Visiting Card Designing<br>Flyer Designing <br>Logo Designing</p>
+                <div class="course-meta mt-2">
+                  <span><i class="bi bi-people-fill"></i> 155</span>
+                  <span class="rating-stars">★★★★★(123)</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">Discount Fee: $100</span>
+                  <span class="original-price">Original Fee: $125</span>
+                </div>
+                <a href="Best-Adobe-Illustrator-Course-Online-Fit-Institute-USA.html" class="btn btn-warning w-100 mt-3">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="card course-card h-100 text-center">
+              <img src="Python-programming.webp" class="card-img-top" alt="C++ Programming" />
+              <div class="card-body">
+                <small class="text-muted">Programming</small>
+                <h5 class="card-title mt-2 fw-bold">Phython <br> Programming</h5>
+                <p class="card-text">Basic Level<br>Advance Level</p>
+                <div class="course-meta mt-2">
+                  <span><i class="bi bi-people-fill"></i> 87</span>
+                  <span class="rating-stars">★★★★★(63)</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">Discount Fee: $170</span>
+                  <span class="original-price">Original Fee: $200</span>
+                </div>
+                <a href="Learn-Python-Programming-Online-Best-USA-Course.html" class="btn btn-warning w-100 mt-3">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="card course-card h-100 text-center">
+              <img src="gamedevelope.png" class="card-img-top" alt="C++ Programming" />
+              <div class="card-body">
+                <small class="text-muted">Developement</small>
+                <h5 class="card-title mt-2 fw-bold">Game <br> Developement <br> Course</h5>
+                <p class="card-text">Basic Level<br>Advance Level</p>
+                <div class="course-meta mt-2">
+                  <span><i class="bi bi-people-fill"></i> 187</span>
+                  <span class="rating-stars">★★★★★(163)</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">Discount Fee: $200</span>
+                  <span class="original-price">Original Fee: $250</span>
+                </div>
+                <a href="Best-Online-Game-Development-Course-Fit-Institute.html" class="btn btn-warning w-100 mt-3">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="card course-card h-100 text-center">
+              <img src="reactjscor.avif" class="card-img-top" alt="C++ Programming" />
+              <div class="card-body">
+                <small class="text-muted">React.js</small>
+                <h5 class="card-title mt-2 fw-bold">React.js <br> Course</h5>
+                <p class="card-text">Introduction to React.js<br>JSX (JavaScript XML) <br>FireBase DB</p>
+                <div class="course-meta mt-2">
+                  <span><i class="bi bi-people-fill"></i> 56</span>
+                  <span class="rating-stars">★★★★★(31)</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">Discount Fee: $150</span>
+                  <span class="original-price">Original Fee: $165</span>
+                </div>
+                <a href="Best-Online-React-Js-Course-Fit-Institute-USA.html" class="btn btn-warning w-100 mt-3">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="card course-card h-100 text-center">
+              <img src="socialcor.webp" class="card-img-top" alt="C++ Programming" />
+              <div class="card-body">
+                <small class="text-muted">Social Media</small>
+                <h5 class="card-title mt-2 fw-bold">Social Media <br> Marketing</h5>
+                <p class="card-text">Digital Marketing<br>FreeLancing</p>
+                <div class="course-meta mt-2">
+                  <span><i class="bi bi-people-fill"></i> 127</span>
+                  <span class="rating-stars">★★★★★(103)</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">Discount Fee: $120</span>
+                  <span class="original-price">Original Fee: $145</span>
+                </div>
+                <a href="Fit-Institute-Best-Social-Media-Marketing-Course-Online-in-USA.html" class="btn btn-warning w-100 mt-3">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="card course-card h-100 text-center">
+              <img src="ui/uxcor.jpg" class="card-img-top" alt="C++ Programming" />
+              <div class="card-body">
+                <small class="text-muted">Graphic Design</small>
+                <h5 class="card-title mt-2 fw-bold">UI/UX <br> Courses</h5>
+                <p class="card-text">UI/UX <br>Adobe UX <br>Website Layout</p>
+                <div class="course-meta mt-2">
+                  <span><i class="bi bi-people-fill"></i> 80</span>
+                  <span class="rating-stars">★★★★★(40)</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">Discount Fee: $150</span>
+                  <span class="original-price">Original Fee: $170</span>
+                </div>
+                <a href="Online-UI-UX-Design-Course-Fit-Institute-Usa.html" class="btn btn-warning w-100 mt-3">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="card course-card h-100 text-center">
+              <img src="SEOcor.webp" class="card-img-top" alt="C++ Programming" />
+              <div class="card-body">
+                <small class="text-muted">SEO</small>
+                <h5 class="card-title mt-2 fw-bold">SEO Course</h5>
+                <p class="card-text">On-Page SEO<br> Off-Page SEO <br>Local SEO</p>
+                <div class="course-meta mt-2">
+                  <span><i class="bi bi-people-fill"></i> 96</span>
+                  <span class="rating-stars">★★★★★(78)</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">Discount Fee: $120</span>
+                  <span class="original-price">Original Fee: $150</span>
+                </div>
+                <a href="Fit-Institute-Best-SEO-Course-Online-in-USA.html" class="btn btn-warning w-100 mt-3">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="card course-card h-100 text-center">
+              <img src="merncor.avif" class="card-img-top" alt="C++ Programming" />
+              <div class="card-body">
+                <small class="text-muted">MERN Stack</small>
+                <h5 class="card-title mt-2 fw-bold">MERN Stack <br> Course</h5>
+                <p class="card-text">React JS<br>API <br>Node/Mango</p>
+                <div class="course-meta mt-2">
+                  <span><i class="bi bi-people-fill"></i> 56</span>
+                  <span class="rating-stars">★★★★★(31)</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">Discount Fee: $200</span>
+                  <span class="original-price">Original Fee: $235</span>
+                </div>
+                <a href="Best-Online-MERN-Stack-Course-in-USA-Fit-Institute.html" class="btn btn-warning w-100 mt-3">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="card course-card h-100 text-center">
+              <img src="flutter.png" class="card-img-top" alt="C++ Programming" />
+              <div class="card-body">
+                <small class="text-muted">Flutter App</small>
+                <h5 class="card-title mt-2 fw-bold">Flutter Course</h5>
+                <p class="card-text">Dart<br>API <br>FireBase</p>
+                <div class="course-meta mt-2">
+                  <span><i class="bi bi-people-fill"></i> 71</span>
+                  <span class="rating-stars">★★★★★(52)</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">Discount Fee: $180</span>
+                  <span class="original-price">Original Fee: $250</span>
+                </div>
+                <a href="Best-Online-Flutter-Course-in-Usa-Fit-Institute.html" class="btn btn-warning w-100 mt-3">View Details</a>
+              </div>
+            </div>
+          </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="pt-5 pb-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4"><h5 class="fw-bold">Future In Technology</h5><p class="mb-0">FIT computer institute is operating all over the world  providing the service of computer short courses from 2012 all around world. We developed many personalities that working in Different IT sector of Government and private.</p></div>
+        <div class="col-md-4"><h6 class="fw-bold">Quick Links</h6><ul class="list-unstyled mb-0"><li><a href="FIT_Home.html">Home</a></li><li><a href="FIT_Course.html">Courses</a></li><li><a href="FIT_About.html">About</a></li><li><a href="FIT_Contact.html">Contact</a></li></ul></div>
+        <div class="col-md-4" id="contact"><h6 class="fw-bold">Contact Us</h6><form class="row g-2"><div class="col-12"><input class="form-control" placeholder="Your Name" required></div><div class="col-12"><input type="email" class="form-control" placeholder="Email" required></div><div class="col-12"><textarea class="form-control" rows="2" placeholder="Message"></textarea></div><div class="col-12 d-grid"><button class="btn btn-light text-dark fw-bold" type="submit">Send</button></div></form></div>
+      </div>
+      <hr class="border-secondary-subtle my-4"/>
+      <div class="text-center small">© 2025 CompTech Institute. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap Script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

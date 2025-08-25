@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FIT Computer Institute – Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ci-orange:#ff6a00;
+      --ci-orange-2:#ff8c33;
+      --ci-dark:#13161a;
+      --ci-muted:#6b7280;
+      --ci-white:#ffffff;
+      --shadow:0 10px 30px rgba(0,0,0,.08)
+    }
+    html,body{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ci-dark);}
+
+    .navbar{padding:.9rem 0; transition:all .25s ease;}
+    .navbar-brand{font-weight:800; letter-spacing:.2px}
+    .nav-link{font-weight:600; position:relative}
+    .nav-link::after{content:""; position:absolute; left:0; bottom:-6px; height:2px; width:0; background:var(--ci-orange); transition:width .25s ease}
+    .nav-link:hover::after{width:100%}
+    .nav-scrolled{background:rgba(255,255,255,.96); box-shadow:0 4px 18px rgba(0,0,0,.05)}
+
+    .hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, rgba(255,106,0,.08), rgba(255,106,0,.02));
+  padding: 6rem 1rem;
+  overflow: hidden;
+}
+
+.hero h1 {
+  font-weight: 800;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  color: #1f2937;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.hero .lead {
+  color: #4b5563;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  margin-top: 1rem;
+  animation: fadeInUp 1.3s ease forwards;
+}
+
+.cta-btn {
+  background: var(--ci-orange);
+  color: #fff;
+  font-weight: 700;
+  padding: .9rem 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 10px 18px rgba(255,106,0,.25);
+  transition: transform .3s ease, box-shadow .3s ease, background .3s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(255,106,0,.35);
+  background: #ff7a1a;
+}
+
+.hero-art {
+  position: relative;
+  isolation: isolate;
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero-badge {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: .7rem 1rem;
+  position: absolute;
+  right: 10%;
+  bottom: 8%;
+  font-weight: 700;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+.shape-wave {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: -1;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: 4rem 1rem 3rem;
+    text-align: center;
+    flex-direction: column;
+  }
+  .hero-badge {
+    position: static;
+    display: inline-block;
+    margin-top: 1.2rem;
+  }
+}
+
+    .section-title{font-weight:800; letter-spacing:.2px}
+    .section-sub{color:var(--ci-muted)}
+
+    .reveal{opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease}
+    .reveal.in{opacity:1; transform:none}
+
+    .card-soft{border:0; border-radius:16px; box-shadow:var(--shadow); transition:transform .25s ease, box-shadow .25s ease}
+    .card-soft:hover{transform:translateY(-8px); box-shadow:0 18px 40px rgba(0,0,0,.12)}
+    .icon-circle{height:56px; width:56px; display:grid; place-items:center; border-radius:50%; background:linear-gradient(135deg,var(--ci-orange),var(--ci-orange-2)); color:#fff}
+
+    .metric{border-radius:14px; background:#fff; box-shadow:var(--shadow); padding:1.25rem}
+    .metric .num{font-size:clamp(1.6rem,4vw,2rem); font-weight:800; color:var(--ci-orange)}
+
+    .teacher-card img{width:96px; height:96px; object-fit:cover; border-radius:50%; border:4px solid #fff; box-shadow:var(--shadow)}
+    .teacher-card{position:relative; overflow:hidden}
+    .teacher-card::after{content:""; position:absolute; inset:auto 0 0 0; height:4px; background:linear-gradient(90deg,var(--ci-orange),var(--ci-orange-2)); transform:scaleX(0); transform-origin:left; transition:transform .3s ease}
+    .teacher-card:hover::after{transform:scaleX(1)}
+
+    .discount{background:linear-gradient(90deg,var(--ci-orange),var(--ci-orange-2)); color:#fff}
+    .discount .btn-light{font-weight:700; border-radius:12px}
+    .btn-pulse{position:relative}
+    .btn-pulse::after{content:""; position:absolute; inset:0; border-radius:inherit; animation:pulse 2s infinite; border:2px solid rgba(255,255,255,.7)}
+    @keyframes pulse{0%{transform:scale(1); opacity:.8} 70%{transform:scale(1.15); opacity:0} 100%{transform:scale(1); opacity:0}}
+
+    .branch{background:#fff; border-radius:14px; box-shadow:var(--shadow); padding:1.25rem}
+
+    footer{background:var(--ci-dark); color:#cbd5e1}
+    footer a{color:#f9c5a5; text-decoration:none}
+    footer a:hover{text-decoration:underline}
+
+    .bg-dots{background-image:radial-gradient(rgba(255,106,0,.12) 2px, transparent 2.5px); background-size:18px 18px}
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top bg-white" id="siteNav">
+  <div class="container">
+    <a class="navbar-brand text-orange" href="FIT_Home.html"><span style="color:var(--ci-orange)">FIT</span> Computer <span style="color:var(--ci-orange)">Institute</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+    <div id="nav" class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="FIT_Home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="FIT_Course.html">Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="FIT_About.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="FIT_Contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header id="home" class="hero overflow-hidden">
+  <div class="container position-relative">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-6">
+        <div class="reveal in">
+          <span class="badge bg-dots text-dark mb-3 py-2 px-3 rounded-4">Future In Technology</span>
+          <h1>Level Up Your <span style="color:var(--ci-orange)">Tech Skills</span></h1>
+          <p class="lead mt-3">Hands‑on courses in Web, Design, and Software Engineering taught by industry pros. Learn fast, build real projects, get hired.</p>
+          <div class="d-flex gap-3 mt-4">
+            <a href="FIT_Course.html" class="btn cta-btn">Explore Courses</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 hero-art">
+        <div class="reveal in">
+          <img class="img-fluid rounded-4 shadow" src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop" alt="Students coding">
+          <div class="hero-badge">95% Student Satisfaction ⭐</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <svg class="shape-wave" viewBox="0 0 1440 110" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M0,96L60,85.3C120,75,240,53,360,53.3C480,53,600,75,720,85.3C840,96,960,96,1080,85.3C1200,75,1320,53,1380,42.7L1440,32L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"/></svg>
+</header>
+
+<!-- ABOUT -->
+<section id="about" class="py-5">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-6 order-lg-2">
+        <img class="img-fluid rounded-4 shadow reveal" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop" alt="Classroom">
+      </div>
+      <div class="col-lg-6">
+        <div class="reveal">
+          <h2 class="section-title">Why Choose FIT?</h2>
+          <p class="section-sub">We blend modern curriculum with mentorship and real‑world projects so you graduate job‑ready.</p>
+          <div class="row g-3 mt-2">
+            <div class="col-sm-6">
+              <div class="card-soft p-3 h-100">
+                <div class="icon-circle mb-2"><svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0a5 5 0 0 0-5 5c0 3.866 5 11 5 11s5-7.134 5-11a5 5 0 0 0-5-5Zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z"/></svg></div>
+                <strong>Multiple Branches</strong>
+                <p class="mb-0 text-secondary">Easy access across the city</p>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card-soft p-3 h-100">
+                <div class="icon-circle mb-2"><svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/></svg></div>
+                <strong>Expert Mentors</strong>
+                <p class="mb-0 text-secondary">Industry‑experienced instructors</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section id="courses" class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-4 reveal">
+      <h2 class="section-title">Popular Courses</h2>
+      <p class="section-sub">Pick a path and start building today</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card-soft p-4 h-100 reveal">
+          <div class="d-flex align-items-center gap-3 mb-2">
+            <div class="icon-circle"><svg width="26" height="26" fill="#fff" viewBox="0 0 16 16"><path d="M14 3a1 1 0 0 1 1 1v7.5a.5.5 0 0 1-.757.429L11 10.101V12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12Z"/></svg></div>
+            <h5 class="mb-0">Web Development</h5>
+          </div>
+          <p class="mb-3 text-secondary">HTML, CSS, JavaScript, Bootstrap, React, PHP – build responsive, modern sites.</p>
+          <a href="Best-Full-Stack-Web-Development-Courses-in-Usa-Online.html" class="fw-semibold">Enroll →</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-soft p-4 h-100 reveal">
+          <div class="d-flex align-items-center gap-3 mb-2">
+            <div class="icon-circle"><svg width="26" height="26" fill="#fff" viewBox="0 0 16 16"><path d="M6.5 0a.5.5 0 0 1 .5.5V2h2V.5a.5.5 0 0 1 1 0V2h1a2 2 0 0 1 2 2v1H3V4a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5Z"/><path d="M3 6h10v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6Z"/></svg></div>
+            <h5 class="mb-0">Graphic Design</h5>
+          </div>
+          <p class="mb-3 text-secondary">Photoshop, Illustrator, color theory, layout, branding & UI fundamentals.</p>
+          <a href="Fit-Institute-Top-Online-Graphic-Design-Course-USA .html" class="fw-semibold">Enroll →</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-soft p-4 h-100 reveal">
+          <div class="d-flex align-items-center gap-3 mb-2">
+            <div class="icon-circle"><svg width="26" height="26" fill="#fff" viewBox="0 0 16 16"><path d="M1 13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6H1v7Zm11-9V3a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v1h8Z"/></svg></div>
+            <h5 class="mb-0">Flutter</h5>
+          </div>
+          <p class="mb-3 text-secondary">Flutter, Dart, and state management – build robust mobile apps.</p>
+          <a href="Best-Online-Flutter-Course-in-Usa-Fit-Institute.html" class="fw-semibold">Enroll →</a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-5">
+        <a href="FIT_Course.html" class="btn cta-btn">View All Courses</a>
+      </div>
+  </div>
+</section>
+
+<!-- STUDENTS (metrics) -->
+<section id="students" class="py-5">
+  <div class="container">
+    <div class="text-center mb-4 reveal"><h2 class="section-title">Our Students</h2><p class="section-sub">A growing community of achievers</p></div>
+    <div class="row g-3">
+      <div class="col-6 col-md-3"><div class="metric text-center reveal"><div class="num" data-target="5000">0</div><div class="small text-secondary">Alumni</div></div></div>
+      <div class="col-6 col-md-3"><div class="metric text-center reveal"><div class="num" data-target="92">0</div><div class="small text-secondary">Placement %</div></div></div>
+      <div class="col-6 col-md-3"><div class="metric text-center reveal"><div class="num" data-target="120">0</div><div class="small text-secondary">Hiring Partners</div></div></div>
+      <div class="col-6 col-md-3"><div class="metric text-center reveal"><div class="num" data-target="18">0</div><div class="small text-secondary">Active Batches</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEACHERS -->
+<section id="teachers" class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-4 reveal"><h2 class="section-title">Meet Our Teachers</h2><p class="section-sub">Mentors who build and teach</p></div>
+    <div class="row g-4">
+      <div class="col-md-4"><div class="teacher-card card-soft p-4 text-center reveal"><img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=400&auto=format&fit=crop" alt="Teacher"><h6 class="mt-3 mb-1 fw-bold">John Smith</h6><div class="text-secondary small">Senior Web Developer</div></div></div>
+      <div class="col-md-4"><div class="teacher-card card-soft p-4 text-center reveal"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop" alt="Teacher"><h6 class="mt-3 mb-1 fw-bold">Sarah Johnson</h6><div class="text-secondary small">Graphic Design Expert</div></div></div>
+      <div class="col-md-4"><div class="teacher-card card-soft p-4 text-center reveal"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format&fit=crop" alt="Teacher"><h6 class="mt-3 mb-1 fw-bold">David Lee</h6><div class="text-secondary small">Software Engineer</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCOUNT + REGISTER -->
+<section class="discount py-5">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-6">
+        <img class="img-fluid rounded-4 shadow reveal" src="https://images.unsplash.com/photo-1523289333742-be1143f6b766?q=80&w=1200&auto=format&fit=crop" alt="Offer">
+      </div>
+      <div class="col-lg-6">
+        <div class="reveal">
+          <h2 class="mb-2">Limited‑Time Discount</h2>
+          <p class="mb-4">Enroll this month and get <strong>20% OFF</strong> on any course. Secure your seat today and start learning!</p>
+          <a href="FIT_Contact.html" class="btn btn-light btn-lg btn-pulse">Register Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANCHES -->
+<section id="branches" class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-4 reveal"><h2 class="section-title">Our Branches</h2><p class="section-sub">Find us near you</p></div>
+    <div class="row g-4">
+      <div class="col-md-4"><div class="branch reveal"><div class="d-flex align-items-center gap-3 mb-1"><span class="icon-circle" style="--ci-orange:#ff6a00"><svg width="20" height="20" viewBox="0 0 16 16" fill="#fff"><path d="M8 0a5 5 0 0 0-5 5c0 3.866 5 11 5 11s5-7.134 5-11a5 5 0 0 0-5-5Zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z"/></svg></span><h6 class="mb-0 fw-bold">Pakistan (RawalPindi)</h6></div><div class="text-secondary small"> C Block Satellite Town, Rawalpindi, Punjab 46000</div></div></div>
+      <div class="col-md-4"><div class="branch reveal"><div class="d-flex align-items-center gap-3 mb-1"><span class="icon-circle"><svg width="20" height="20" viewBox="0 0 16 16" fill="#fff"><path d="M8 0a5 5 0 0 0-5 5c0 3.866 5 11 5 11s5-7.134 5-11a5 5 0 0 0-5-5Zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z"/></svg></span><h6 class="mb-0 fw-bold">USA (Chicago)</h6></div><div class="text-secondary small">123 W Madison St, Chicago, Illinois 60602</div></div></div>
+      <div class="col-md-4"><div class="branch reveal"><div class="d-flex align-items-center gap-3 mb-1"><span class="icon-circle"><svg width="20" height="20" viewBox="0 0 16 16" fill="#fff"><path d="M8 0a5 5 0 0 0-5 5c0 3.866 5 11 5 11s5-7.134 5-11a5 5 0 0 0-5-5Zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z"/></svg></span><h6 class="mb-0 fw-bold">Canada (Victoria)</h6></div><div class="text-secondary small">456 Collins St, Victoria, Melbourne 3000</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="pt-5 pb-4">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4"><h5 class="fw-bold">Future In Technology</h5><p class="mb-0">FIT computer institute is operating all over the world  providing the service of computer short courses from 2012 all around world. We developed many personalities that working in Different IT sector of Government and private.</p></div>
+      <div class="col-md-4"><h6 class="fw-bold">Quick Links</h6><ul class="list-unstyled mb-0"><li><a href="FIT_Home.html">Home</a></li><li><a href="FIT_Course.html">Courses</a></li><li><a href="FIT_About.html">About</a></li><li><a href="FIT_Contact.html">Contact</a></li></ul></div>
+      <div class="col-md-4" id="contact"><h6 class="fw-bold">Contact Us</h6><form class="row g-2"><div class="col-12"><input class="form-control" placeholder="Your Name" required></div><div class="col-12"><input type="email" class="form-control" placeholder="Email" required></div><div class="col-12"><textarea class="form-control" rows="2" placeholder="Message"></textarea></div><div class="col-12 d-grid"><button class="btn btn-light text-dark fw-bold" type="submit">Send</button></div></form></div>
+    </div>
+    <hr class="border-secondary-subtle my-4"/>
+    <div class="text-center small">© 2025 CompTech Institute. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Navbar shadow on scroll
+  const nav = document.getElementById('siteNav');
+  const onScroll = () => { nav.classList.toggle('nav-scrolled', window.scrollY > 10); };
+  document.addEventListener('scroll', onScroll); onScroll();
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.15});
+  reveals.forEach(el=>{ if(!el.classList.contains('in')) io.observe(el); });
+
+  // Counters
+  const nums = document.querySelectorAll('.num');
+  const io2 = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const el = e.target; const target = +el.dataset.target; let cur = 0; const step = Math.max(1, Math.floor(target/80));
+        const tick = () => { cur += step; if(cur >= target){ el.textContent = target; } else { el.textContent = cur; requestAnimationFrame(tick);} };
+        tick(); io2.unobserve(el);
+      }
+    })
+  },{threshold:.5});
+  nums.forEach(n=>io2.observe(n));
+</script>
+</body>
+</html>
